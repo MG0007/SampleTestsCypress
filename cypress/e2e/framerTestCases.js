@@ -7,6 +7,7 @@ describe('Framer home page loads and links work as expected', () => {
         cy.visit(locators.homePage.homePageUrl);
     });
 
+
     it('Home page should load correctly', () => {
         cy.title().should('eq', '3D Framer Site');
     });
@@ -14,5 +15,7 @@ describe('Framer home page loads and links work as expected', () => {
     it('"Pricing page" should load correctly', () => {
         cy.get(locators.pricingPage.pricingPageUrl).click();
         cy.get(locators.pricingPage.pricingPageTitle).should('have.text', 'Pricing');
+=======
+    
     });
 });
