@@ -19,11 +19,17 @@ describe('Framer home page loads and links work as expected', () => {
     
     });
 
-    it.only('Pricing tiles display "$" for product prices', () => {
+    it('Pricing tiles display "$" for product prices', () => {
         cy.get(locators.pricingPage.pricingPageUrl).click();
 
         cy.get(locators.pricingPage.pricingPageTiles).each((tile) =>{
             expect(tile.text()[0]).to.eq('$');
         });
-    })
+    });
+
+    it.only('FAQ section in Pricing page contains 4 questions', ()=>{
+        cy.get(locators.pricingPage.pricingPageUrl).click();
+
+        cy.get(locators.pricingPage.pricingPageQuestions).should('have.length', 4);
+    });
 });
