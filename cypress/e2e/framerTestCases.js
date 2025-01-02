@@ -18,4 +18,12 @@ describe('Framer home page loads and links work as expected', () => {
 =======
     
     });
+
+    it.only('Pricing tiles display "$" for product prices', () => {
+        cy.get(locators.pricingPage.pricingPageUrl).click();
+
+        cy.get(locators.pricingPage.pricingPageTiles).each((tile) =>{
+            expect(tile.text()[0]).to.eq('$');
+        });
+    })
 });
