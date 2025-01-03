@@ -7,6 +7,7 @@ describe('Framer home page loads and links work as expected', () => {
         cy.visit(locators.homePage.pageUrl);
     });
 
+
     it('Home page should load correctly', () => {
         cy.title().should('eq', locators.homePage.tabTitle);
     });
@@ -14,6 +15,7 @@ describe('Framer home page loads and links work as expected', () => {
     it('"Pricing page" should load correctly', () => {
         cy.get(locators.pricingPage.pageUrl).click();
         cy.get(locators.pricingPage.pageTitle).should('have.text', locators.pricingPage.pageTtl);
+
     });
 
     it('Pricing tiles display "$" for product prices', () => {
