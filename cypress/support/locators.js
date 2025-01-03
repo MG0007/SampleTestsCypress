@@ -1,36 +1,37 @@
 const locators = {
     homePage: {
-        homePageUrl: 'https://mind-wend-913065.framer.app/',
-        homePageGetTheAppButton: 'div.framer-14g223s span',
-        homePageGetTheAppButton: 'div.framer-14g223s span',
-        homePageMobileAppVideoButtons: 'div.framer-15y7aei > div',
-        homePage3DButton: 'div.framer-yvxyy1 span',
+        pageUrl: 'https://mind-wend-913065.framer.app/',
+        getTheAppButton: 'div.framer-14g223s span',
+        mobileAppVideoButtons: 'div.framer-15y7aei > div',
+        _3DButton: 'div.framer-yvxyy1 span',
         animation3D: 'div.framer-xattrb[data-framer-name="Variant 2"]',
+        tabTitle: '3D Framer Site'
     },
     pricingPage: {
-        pricingPageUrl: 'div.framer-1g3amks-container div[data-framer-generated="true"] span',
-        pricingPageTitle: 'div.framer-1xy1tag h1 span',
-        pricingPageTiles: 'div.pricing-container h2 span',
-        pricingPageQuestions: 'div.framer-cx0lih [values="[object Object]"]',
+        pageUrl: 'div.framer-1g3amks-container div[data-framer-generated="true"] span',
+        pageTitle: 'div.framer-1xy1tag h1 span',
+        pageTiles: 'div.pricing-container h2 span',
+        pageQuestions: 'div.framer-cx0lih [values="[object Object]"]',
         fqaNumberOfQuestions: 4,
+        pageTtl: 'Pricing'
     },
     componentsPage: {
-        componentsPageUrl: 'div.framer-15kr31b-container span',
-        componentsPageCardsVisitButtons: 'div.framer-1ytqfhu div[values="[object Object]"] div[name="Button"]',
-        componentsPageCard: 'div.framer-1ytqfhu div[values="[object Object]"] div[name="Card"]',
-        componentsPageCardSmall: 'div.framer-1ytqfhu div[values="[object Object]"] div[name="Card Small"]',
-        componentsPageSignUpButton: 'rgb(255,82,79)',
+        pageUrl: 'div.framer-15kr31b-container span',
+        cardsVisitButtons: 'div.framer-1ytqfhu div[values="[object Object]"] div[name="Button"]',
+        largeCard: 'div.framer-1ytqfhu div[values="[object Object]"] div[name="Card"]',
+        smallCard: 'div.framer-1ytqfhu div[values="[object Object]"] div[name="Card Small"]',
+        signUpButtonColor: 'rgb(255,82,79)',
 
     },
     footerSection: {
-        footerSec: 'div.framer-1jtqeum',
-        footerSubscribeSection: 'div.framer-l3ry8h',
-        footerSignUpButton: 'form input[value="Sign Up"]',
+        section: 'div.framer-1jtqeum',
+        subscribeSection: 'div.framer-l3ry8h',
+        signUpButton: 'form input[value="Sign Up"]',
     },
 
     updatesPage: {
-        updatesPageUrl: 'div.framer-7hrpx3-container span',
-        updatesPageTitle: 'div.framer-1oe4f0f h1 span',
+        pageUrl: 'div.framer-7hrpx3-container span',
+        pageTitle: 'div.framer-1oe4f0f h1 span',
     },
 }
 
