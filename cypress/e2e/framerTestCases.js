@@ -63,8 +63,19 @@ describe('Framer home page loads and links work as expected', () => {
 
     it('Does display the "Updates" page after clicking the "Update" button', () => {
         cy.get(locators.updatesPage.pageUrl).click();
-        cy.get(locators.updatesPage.pageTitle).then((el)=>{
+        cy.get(locators.updatesPage.pageTitle).then((el) => {
             expect(el.text()).to.equal('Updates');
         });
     })
+
+    it('Does display "get the app" and "watch video" one above the other on mobile', () => {
+        cy.viewport(400, 800);
+
+        cy.get(locators.homePage.mobileAppVideoButtons).then((el) => {
+            const text = el.text().split('W');
+            text[1] = 'W' + text[1];
+            expect(text[0]).to.equal('Get the App');
+            expect(text[1]).to.equal('Watch video');
+        });
+    });
 });
