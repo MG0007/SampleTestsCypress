@@ -79,7 +79,7 @@ describe('Framer home page loads and links work as expected', () => {
         });
     });
 
-    it.only('Does display 3d animation after clicking on "click to view in 3d" button', () => {
+    it('Does display 3d animation after clicking on "click to view in 3d" button', () => {
         cy.get(locators.homePage._3DButton).click();
         cy.get(locators.homePage.animation3D).should('have.length', 1);
     })
