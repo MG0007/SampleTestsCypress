@@ -32,7 +32,7 @@ describe('Framer home page loads and links work as expected', () => {
         cy.get(locators.pricingPage.pageQuestions).should('have.length', locators.pricingPage.fqaNumberOfQuestions);
     });
 
-    it.only('Does display "visit" button on each card in Components section of Components page', () => {
+    it('Does display "visit" button on each card in Components section of Components page', () => {
         cy.get(locators.componentsPage.pageUrl).click();
 
         let visitButtonTotal = 0;
@@ -55,4 +55,9 @@ describe('Framer home page loads and links work as expected', () => {
             expect(largeCardTotal + smallCardTotal).to.equal(visitButtonTotal);
         });
     });
+
+    it.only('Does blur the background after "Get the app" click', ()=>{
+        cy.get(locators.homePage.getTheAppButton).click();
+        cy.get('#overlay div.framer-vrqh0x').should('have.length', 1);
+    })
 });
