@@ -56,8 +56,15 @@ describe('Framer home page loads and links work as expected', () => {
         });
     });
 
-    it.only('Does blur the background after "Get the app" click', ()=>{
+    it('Does blur the background after "Get the app" click', () => {
         cy.get(locators.homePage.getTheAppButton).click();
         cy.get('#overlay div.framer-vrqh0x').should('have.length', 1);
+    });
+
+    it('Does display the "Updates" page after clicking the "Update" button', () => {
+        cy.get(locators.updatesPage.pageUrl).click();
+        cy.get(locators.updatesPage.pageTitle).then((el)=>{
+            expect(el.text()).to.equal('Updates');
+        });
     })
 });
