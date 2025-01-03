@@ -39,19 +39,17 @@ describe('Framer home page loads and links work as expected', () => {
         let largeCardTotal = 0;
         let smallCardTotal = 0;
 
-        cy.get(locators.componentsPage.cardsVisitButtons).then((elements) => {
-            let splitText = elements.text().split('V');
-            visitButtonTotal = splitText.length - 1;
+        cy.get(locators.componentsPage.cardsVisitButtons).its('length').then((buttonCount) => {
+            visitButtonTotal = buttonCount;
         });
 
-        cy.get(locators.componentsPage.largeCard).then((elements) => {
-            let splitText = elements.text().split('V');
-            largeCardTotal = splitText.length - 1;
+        cy.get(locators.componentsPage.largeCard).its('length').then((cardCount) => {
+            largeCardTotal = cardCount;
         });
 
-        cy.get(locators.componentsPage.smallCard).then((elements) => {
-            let splitText = elements.text().split('V');
-            smallCardTotal = splitText.length - 1;
+        cy.get(locators.componentsPage.smallCard).its('length').then((cardCount) => {
+            smallCardTotal = cardCount;
+
             expect(largeCardTotal + smallCardTotal).to.equal(visitButtonTotal);
         });
     });
