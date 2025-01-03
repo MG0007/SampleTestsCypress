@@ -78,4 +78,9 @@ describe('Framer home page loads and links work as expected', () => {
             expect(text[1]).to.equal('Watch video');
         });
     });
+
+    it.only('Does display 3d animation after clicking on "click to view in 3d" button', () => {
+        cy.get(locators.homePage._3DButton).click();
+        cy.get(locators.homePage.animation3D).should('have.length', 1);
+    })
 });
