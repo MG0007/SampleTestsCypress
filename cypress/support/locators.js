@@ -18,10 +18,11 @@ const locators = {
     componentsPage: {
         pageUrl: 'div.framer-15kr31b-container span',
         cardsVisitButtons: 'div.framer-1ytqfhu div[values="[object Object]"] div[name="Button"]',
-        largeCard: 'div.framer-1ytqfhu div[values="[object Object]"] div[name="Card"]',
-        smallCard: 'div.framer-1ytqfhu div[values="[object Object]"] div[name="Card Small"]',
+        largeCard: 'div.framer-1ytqfhu div[name="Card"]',
+        smallCard: 'div.framer-1ytqfhu div[name="Card Small"]',
         signUpButtonColor: 'rgb(255,82,79)',
-
+        cardAddition: ' div[name="Button"] p span.framer-text',
+        buttonText: 'Visit'
     },
     footerSection: {
         section: 'div.framer-1jtqeum',

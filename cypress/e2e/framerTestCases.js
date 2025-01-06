@@ -34,25 +34,37 @@ describe('Framer home page loads and links work as expected', () => {
 
     it('Does display "visit" button on each card in Components section of Components page', () => {
         cy.get(locators.componentsPage.pageUrl).click();
-
-        let visitButtonTotal = 0;
-        let largeCardTotal = 0;
-        let smallCardTotal = 0;
-
-        cy.get(locators.componentsPage.cardsVisitButtons).then((elements) => {
-            const splitText = elements.text().split('V');
-            visitButtonTotal = splitText.length - 1;
-        });
+        
+        const largeCardSelectors = [];
+        const smallCardSelectors = [];
 
         cy.get(locators.componentsPage.largeCard).then((elements) => {
-            const splitText = elements.text().split('V');
-            largeCardTotal = splitText.length - 1;
+
+            elements.each((i, el) => {
+                cy.get(el).invoke('attr', 'class').then((attr)=>{
+                    largeCardSelectors.push(attr);
+                });
+            });
+        });
+
+        cy.wrap(largeCardSelectors).each((card)=>{
+            cy.get('div.' + card.trim() + locators.componentsPage.cardAddition).invoke('text').then((text)=>{
+                expect(text).to.equal(locators.componentsPage.buttonText);
+            });
         });
 
         cy.get(locators.componentsPage.smallCard).then((elements) => {
-            const splitText = elements.text().split('V');
-            smallCardTotal = splitText.length - 1;
-            expect(largeCardTotal + smallCardTotal).to.equal(visitButtonTotal);
+            elements.each((i, el) => {
+                cy.get(el).invoke('attr', 'class').then((attr)=>{
+                    smallCardSelectors.push(attr);
+                });
+            });
+        });
+
+        cy.wrap(smallCardSelectors).each((card)=>{
+            cy.get('div.' + card.trim() + locators.componentsPage.cardAddition).invoke('text').then((text)=>{
+                expect(text).to.equal(locators.componentsPage.buttonText);
+            });
         });
     });
 
@@ -82,5 +94,7 @@ describe('Framer home page loads and links work as expected', () => {
     it('Does display 3d animation after clicking on "click to view in 3d" button', () => {
         cy.get(locators.homePage._3DButton).click();
         cy.get(locators.homePage.animation3D).should('have.length', 1);
-    })
+
+    });
 });
+
