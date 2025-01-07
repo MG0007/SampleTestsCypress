@@ -2,10 +2,12 @@ const locators = {
     homePage: {
         pageUrl: 'https://mind-wend-913065.framer.app/',
         getTheAppButton: 'div.framer-14g223s span',
-        mobileAppVideoButtons: 'div.framer-15y7aei > div',
+        mobileAppVideoButtons: 'div.framer-15y7aei span[style="--framer-text-color:var(--extracted-1w3ko1f);"]',
+        mobileAppVideoButtonsArr: ['Get the App', 'Watch video'],
         _3DButton: 'div.framer-yvxyy1 span',
         animation3D: 'div.framer-xattrb[data-framer-name="Variant 2"]',
-        tabTitle: '3D Framer Site'
+        tabTitle: '3D Framer Site',
+
     },
     pricingPage: {
         pageUrl: 'div.framer-1g3amks-container div[data-framer-generated="true"] span',
