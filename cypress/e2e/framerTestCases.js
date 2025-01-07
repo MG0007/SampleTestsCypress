@@ -34,35 +34,35 @@ describe('Framer home page loads and links work as expected', () => {
 
     it('Does display "visit" button on each card in Components section of Components page', () => {
         cy.get(locators.componentsPage.pageUrl).click();
-        
+
         const largeCardSelectors = [];
         const smallCardSelectors = [];
 
         cy.get(locators.componentsPage.largeCard).then((elements) => {
 
             elements.each((i, el) => {
-                cy.get(el).invoke('attr', 'class').then((attr)=>{
+                cy.get(el).invoke('attr', 'class').then((attr) => {
                     largeCardSelectors.push(attr);
                 });
             });
         });
 
-        cy.wrap(largeCardSelectors).each((card)=>{
-            cy.get('div.' + card.trim() + locators.componentsPage.cardAddition).invoke('text').then((text)=>{
+        cy.wrap(largeCardSelectors).each((card) => {
+            cy.get('div.' + card.trim() + locators.componentsPage.cardAddition).invoke('text').then((text) => {
                 expect(text).to.equal(locators.componentsPage.buttonText);
             });
         });
 
         cy.get(locators.componentsPage.smallCard).then((elements) => {
             elements.each((i, el) => {
-                cy.get(el).invoke('attr', 'class').then((attr)=>{
+                cy.get(el).invoke('attr', 'class').then((attr) => {
                     smallCardSelectors.push(attr);
                 });
             });
         });
 
-        cy.wrap(smallCardSelectors).each((card)=>{
-            cy.get('div.' + card.trim() + locators.componentsPage.cardAddition).invoke('text').then((text)=>{
+        cy.wrap(smallCardSelectors).each((card) => {
+            cy.get('div.' + card.trim() + locators.componentsPage.cardAddition).invoke('text').then((text) => {
                 expect(text).to.equal(locators.componentsPage.buttonText);
             });
         });
@@ -80,14 +80,18 @@ describe('Framer home page loads and links work as expected', () => {
         });
     })
 
-    it('Does display "get the app" and "watch video" one above the other on mobile', () => {
+    it.only('Does display "get the app" and "watch video" one above the other on mobile', () => {
         cy.viewport(400, 800);
 
-        cy.get(locators.homePage.mobileAppVideoButtons).then((el) => {
-            const text = el.text().split('W');
-            text[1] = 'W' + text[1];
-            expect(text[0]).to.equal('Get the App');
-            expect(text[1]).to.equal('Watch video');
+        cy.get(locators.homePage.mobileAppVideoButtons).then((elements) => {
+
+            elements.each((i, el) => {
+                if(i < locators.homePage.mobileAppVideoButtonsArr.length){
+                    cy.get(el).invoke('text').then((text) => {
+                        expect(text).to.equal(locators.homePage.mobileAppVideoButtonsArr[i]);
+                    });
+                };                
+            });
         });
     });
 
