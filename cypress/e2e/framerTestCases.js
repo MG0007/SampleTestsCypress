@@ -80,7 +80,7 @@ describe('Framer home page loads and links work as expected', () => {
         });
     })
 
-    it.only('Does display "get the app" and "watch video" one above the other on mobile', () => {
+    it('Does display "get the app" and "watch video" one above the other on mobile', () => {
         cy.viewport(400, 800);
 
         cy.get(locators.homePage.mobileAppVideoButtons).then((elements) => {
